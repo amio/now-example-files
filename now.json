@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "name": "now-example-files",
+  "alias": "now-example-files",
+  "builds": [
+    { "src": "README.md", "use": "@now/static" },
+    { "src": "endpoints/*.js", "use": "@now/node" }
+  ],
+  "routes": [
+    {
+      "src": "^/",
+      "dest": "/README.md",
+      "headers": {
+        "cache-control": "public, max-age=60, s-maxage=86400, stale-while-revalidate=86400, stale-if-error=86400"
+      }
+    }, {
+      "src": "^/list.json",
+      "dest": "/endpoints/list.js",
+      "headers": {
+        "cache-control": "public, max-age=60, s-maxage=86400, stale-while-revalidate=86400, stale-if-error=86400"
+      }
+    }, {
+      "src": "^/download/(.*)",
+      "dest": "/endpoints/download.js",
+      "headers": {
+        "cache-control": "public, s-maxage=86400, stale-while-revalidate=86400, stale-if-error=86400"
+      }
+    }
+  ]
+}

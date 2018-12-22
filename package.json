@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "scripts": {
+    "dev:list": "micro-dev endpoints/list.js",
+    "dev:download": "micro-dev endpoints/download.js"
+  },
+  "dependencies": {
+    "got": "^9.5.0",
+    "micro": "^9.3.3",
+    "path-match": "^1.2.4",
+    "tar-fs": "^1.16.3",
+    "unzip-stream": "^0.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "micro-dev": "^3.0.0"
+  }
+}
