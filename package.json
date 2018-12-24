@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev:list": "micro-dev endpoints/list.js",
-    "dev:download": "micro-dev endpoints/download.js"
+    "dev:download": "micro-dev endpoints/download.js",
+    "test": "eslint . && tap test/*.js"
   },
   "dependencies": {
     "got": "^9.5.0",
@@ -16,6 +17,8 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
-    "micro-dev": "^3.0.0"
+    "micro-dev": "^3.0.0",
+    "supertest": "^3.3.0",
+    "tap": "^12.1.1"
   }
 }
