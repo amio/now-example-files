@@ -7,6 +7,11 @@ const extract = require('../lib/extract.js');
 
 const TMP_DIR = '/tmp';
 
+/* eslint-disable-next-line arrow-body-style */
+const isDirectory = (path) => {
+  return fs.existsSync(path) && fs.lstatSync(path).isDirectory();
+};
+
 module.exports = async (req, res) => {
   const match = route('/download/:example.tar.gz');
   const params = match(url.parse(req.url).pathname);
@@ -15,7 +20,8 @@ module.exports = async (req, res) => {
   await extract('https://github.com/zeit/now-examples/archive/master.zip', TMP_DIR);
 
   const expected = `${TMP_DIR}/now-examples-master/${params.example}`;
-  if (!fs.existsSync(expected)) {
+
+  if (!isDirectory(expected)) {
     return micro.send(res, 404);
   }
 
